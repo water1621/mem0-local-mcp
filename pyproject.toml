@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mem0-local-mcp"
+version = "1.0.0"
+description = "AI Memory Layer MCP Server - Self-hosted with full local control"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Mem0 Local MCP Contributors"}
+]
+keywords = ["mcp", "memory", "ai", "llm", "embedding", "semantic-search"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "httpx>=0.25.0",
+    "numpy>=1.24.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[project.scripts]
+mem0-local-mcp = "server:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/mem0-local-mcp"
+Documentation = "https://github.com/yourusername/mem0-local-mcp#readme"
+Repository = "https://github.com/yourusername/mem0-local-mcp"
+Issues = "https://github.com/yourusername/mem0-local-mcp/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.example"]

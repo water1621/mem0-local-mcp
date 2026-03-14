@@ -1,0 +1,60 @@
+# Mem0 Local MCP Configuration
+# Copy this file to config.yaml and fill in your values
+
+# ============================================================
+# LLM Configuration - Used for memory extraction
+# ============================================================
+llm:
+  # API Key for your LLM provider
+  api_key: "YOUR_LLM_API_KEY_HERE"
+  
+  # API Base URL (change based on your provider)
+  # Alibaba Cloud: https://coding.dashscope.aliyuncs.com/apps/anthropic/v1
+  # OpenAI: https://api.openai.com/v1
+  # SiliconFlow: https://api.siliconflow.cn/v1
+  base_url: "https://api.openai.com/v1"
+  
+  # Model name (change based on your provider)
+  # Alibaba Cloud: qwen3-coder-plus, qwen3-max
+  # OpenAI: gpt-4o, gpt-4o-mini
+  # SiliconFlow: Qwen/Qwen3-8B
+  model: "gpt-4o-mini"
+
+# ============================================================
+# Embedding Configuration - Used for semantic search
+# ============================================================
+embedding:
+  # API Key for your embedding provider
+  api_key: "YOUR_EMBEDDING_API_KEY_HERE"
+  
+  # API Base URL
+  # SiliconFlow: https://api.siliconflow.cn/v1
+  # OpenAI: https://api.openai.com/v1
+  # Alibaba Cloud: https://dashscope.aliyuncs.com/compatible-mode/v1
+  base_url: "https://api.openai.com/v1"
+  
+  # Model name
+  # SiliconFlow: BAAI/bge-m3, BAAI/bge-large-zh-v1.5
+  # OpenAI: text-embedding-3-small, text-embedding-3-large
+  # Alibaba Cloud: text-embedding-v3
+  model: "text-embedding-3-small"
+
+# ============================================================
+# Vector Store Configuration - Where memories are stored
+# ============================================================
+vector_store:
+  # Storage provider: "memory" or "sqlite"
+  # memory: Fast but data lost on restart
+  # sqlite: Persistent storage
+  provider: "sqlite"
+  
+  # Path for sqlite database (only used if provider is "sqlite")
+  # Use relative path for portability
+  persist_path: "./data/memories.db"
+
+# ============================================================
+# Server Configuration (Optional)
+# ============================================================
+server:
+  # Log level: debug, info, warning, error
+  log_level: "info"
